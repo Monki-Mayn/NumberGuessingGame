@@ -5,7 +5,7 @@
 int main()
 {
     std::cout << "Welcome to the number guessing game!\n"
-        << "What range of numbers would you like to guess in?\n"
+        << "What range of numbers would you like to guess from?\n"
         << "1 to ____\n";
 
     int difficulty{};
