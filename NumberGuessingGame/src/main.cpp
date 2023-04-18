@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <random>
 
 int main()
 {
@@ -13,13 +12,14 @@ int main()
 
     std::cout << "Can you guess the number from 1 to " << difficulty << "?\n";
 
-    srand((unsigned)time(NULL));
-    int random{ 1 + rand() % difficulty };
+    std::mt19937 randomNumber{ std::random_device{}() };
+
+    std::uniform_int_distribution <> die6{ 1, difficulty };
 
     int guess{};
     std::cin >> guess;
 
-    while (guess != random) {
+    while (guess != die6(randomNumber)) {
         std::cout << "Try again!\n";
         std::cin >> guess;
         if (guess < 1 || guess > difficulty)
